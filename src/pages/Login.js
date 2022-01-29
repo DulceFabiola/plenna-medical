@@ -38,9 +38,7 @@ const Login = () => {
             className=""
           >
             <div>
-              <label for="email" className="">
-                Correo electrónico
-              </label>
+              <label className="">Correo electrónico</label>
               <div className="mt-1">
                 <input
                   onChange={(e) => {
@@ -48,7 +46,6 @@ const Login = () => {
                   }}
                   name="email"
                   type="email"
-                  autocomplete="email"
                   required
                   className=""
                 />
@@ -56,9 +53,7 @@ const Login = () => {
             </div>
 
             <div className="">
-              <label for="password" className="">
-                Contraseña
-              </label>
+              <label className="">Contraseña</label>
               <div className="">
                 <input
                   onChange={(e) => {
@@ -66,7 +61,6 @@ const Login = () => {
                   }}
                   name="password"
                   type="password"
-                  autocomplete="current-password"
                   required
                   className=""
                 />

@@ -37,9 +37,7 @@ const Register = () => {
             className=""
           >
             <div>
-              <label for="email" className="">
-                Nombre de usuario
-              </label>
+              <label className="">Nombre de usuario</label>
               <div className="">
                 <input
                   onChange={(event) => {
@@ -61,7 +59,6 @@ const Register = () => {
                   }}
                   name="email"
                   type="email"
-                  autocomplete="current-password"
                   required
                   className=""
                 />
@@ -69,9 +66,7 @@ const Register = () => {
             </div>
 
             <div className="">
-              <label for="password" className="">
-                Contraseña
-              </label>
+              <label className="">Contraseña</label>
               <div className="mt-1">
                 <input
                   onChange={(event) => {
@@ -79,7 +74,6 @@ const Register = () => {
                   }}
                   name="password"
                   type="password"
-                  autocomplete="current-password"
                   required
                   className=""
                 />
