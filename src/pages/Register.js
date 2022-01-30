@@ -25,70 +25,65 @@ const Register = () => {
     registerUser(newUser);
   };
   return (
-    <div className="main-container container">
-      <img className="iconApp" src="./../../plenna.jpg" alt="Plenna" />
-      <h2>Registra una cuenta</h2>
-      <div>
-        <div>
-          <form
-            onSubmit={(event) => {
-              handleSubmit(event);
-            }}
-            className=""
-          >
+    <div className="main-container">
+      <div className="container">
+        <img className="icon" src="./../../assets/mujer.png" alt="Plenna" />
+        <h1>Registra una cuenta</h1>
+        <form
+          onSubmit={(event) => {
+            handleSubmit(event);
+          }}
+        >
+          <div>
+            <label className="title">Nombre de usuario</label>
             <div>
-              <label className="">Nombre de usuario</label>
-              <div className="">
-                <input
-                  onChange={(event) => {
-                    handleChange(event);
-                  }}
-                  name="name"
-                  type="text"
-                  required
-                  className=""
-                />
-              </div>
+              <input
+                onChange={(event) => {
+                  handleChange(event);
+                }}
+                name="name"
+                type="text"
+                required
+              />
             </div>
-            <div className="">
-              <label className="">Correo electrónico</label>
-              <div className="">
-                <input
-                  onChange={(event) => {
-                    handleChange(event);
-                  }}
-                  name="email"
-                  type="email"
-                  required
-                  className=""
-                />
-              </div>
+          </div>
+          <div>
+            <label className="title">Correo electrónico</label>
+            <div>
+              <input
+                onChange={(event) => {
+                  handleChange(event);
+                }}
+                name="email"
+                type="email"
+                required
+              />
             </div>
+          </div>
 
-            <div className="">
-              <label className="">Contraseña</label>
-              <div className="mt-1">
-                <input
-                  onChange={(event) => {
-                    handleChange(event);
-                  }}
-                  name="password"
-                  type="password"
-                  required
-                  className=""
-                />
-              </div>
+          <div>
+            <label className="title">Contraseña</label>
+            <div className="mt-1">
+              <input
+                onChange={(event) => {
+                  handleChange(event);
+                }}
+                name="password"
+                type="password"
+                required
+                className=""
+              />
             </div>
-            <div className="">
-              <div className="">{msg && <p>{msg}</p>}</div>
-            </div>
-            <div>
-              <button type="submit" className="btn">
-                Crear cuenta
-              </button>
-            </div>
-          </form>
-        </div>
+          </div>
+          <div>
+            <div className="error-message">{msg && <p>{msg}</p>}</div>
+          </div>
+          <div>
+            <button type="submit" className="btn">
+              Crear cuenta
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

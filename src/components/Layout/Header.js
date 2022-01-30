@@ -13,7 +13,7 @@ const Header = () => {
                   <div>
                     <img
                       className="iconApp"
-                      src="./../../../plenna.jpg"
+                      src="./../../../assets/mujer.png"
                       alt="plenna-icon"
                     />
                     <span>Plenna</span>

@@ -26,62 +26,54 @@ const Login = () => {
     loginUser(logUser);
   };
   return (
-    <div className="main-container container">
-      <img className="iconApp" src="./../../plenna.jpg" alt="Plenna" />
-      <h2 className="">Iniciar sesión</h2>
+    <div className=" container">
       <div className="">
-        <div className="">
-          <form
-            onSubmit={(e) => {
-              handleSubmit(e);
-            }}
-            className=""
-          >
+        <img className="icon" src="./../../assets/mujer.png" alt="Plenna" />
+        <h1>Iniciar sesión</h1>
+        <form
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
+        >
+          <div>
+            <label className="title">Correo electrónico</label>
             <div>
-              <label className="">Correo electrónico</label>
-              <div className="mt-1">
-                <input
-                  onChange={(e) => {
-                    handleChange(e);
-                  }}
-                  name="email"
-                  type="email"
-                  required
-                  className=""
-                />
-              </div>
+              <input
+                onChange={(e) => {
+                  handleChange(e);
+                }}
+                name="email"
+                type="email"
+                required
+              />
             </div>
+          </div>
 
-            <div className="">
-              <label className="">Contraseña</label>
-              <div className="">
-                <input
-                  onChange={(e) => {
-                    handleChange(e);
-                  }}
-                  name="password"
-                  type="password"
-                  required
-                  className=""
-                />
-              </div>
-            </div>
+          <div>
+            <label className="title">Contraseña</label>
+            <input
+              onChange={(e) => {
+                handleChange(e);
+              }}
+              name="password"
+              type="password"
+              required
+            />
+          </div>
 
-            <div className="">
-              <div className="">
-                <Link to="/signup" className="">
-                  ¡Regístra una cuenta!
-                </Link>
-              </div>
-            </div>
-            <div className="">
-              <div className="">{msg && <p>{msg}</p>}</div>
-            </div>
-            <button type="submit" className="">
-              Inicia sesión
-            </button>
-          </form>
-        </div>
+          <div>
+            <Link to="/signup" className="link">
+              ¡Regístra una cuenta!
+            </Link>
+          </div>
+
+          <div>
+            <div className="error-message">{msg && <p>{msg}</p>}</div>
+          </div>
+          <button type="submit" className="btn">
+            Inicia sesión
+          </button>
+        </form>
       </div>
     </div>
   );
