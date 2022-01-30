@@ -41,10 +41,15 @@ const ConsultProvider = (props) => {
       payload: selectedConsult,
     });
   };
+  //CRAR CONSULTA
+  const createConsult = async (form) => {
+    await axiosClient.post("consults/create", form);
+    console.log(form);
+  };
 
   //EDITAR CONSULTA
   const updateConsult = async (form, idConsult) => {
-    await axiosClient.put(`consult/edit/${idConsult}`, form);
+    await axiosClient.put(`consults/edit/${idConsult}`, form);
   };
 
   return (
@@ -54,6 +59,7 @@ const ConsultProvider = (props) => {
         singleConsult: globalState.singleConsult,
         getConsults,
         getConsult,
+        createConsult,
         updateConsult,
       }}
     >

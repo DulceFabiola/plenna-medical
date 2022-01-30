@@ -15,6 +15,7 @@ import PatientProvider from "./context/Patient/PatientProvider";
 import Consults from "./pages/Consults";
 import ConsultProvider from "./context/Consult/ConsultProvider";
 import ConsultDetails from "./pages/ConsultDetails";
+import Checkout from "./pages/Checkout";
 const Router = () => {
   return (
     <>
@@ -49,6 +50,7 @@ const Router = () => {
                     path="consultDetails/:id"
                     element={<ConsultDetails />}
                   />
+                  <Route path="checkout" element={<Checkout />} />
                 </Route>
               </Routes>
             </BrowserRouter>
