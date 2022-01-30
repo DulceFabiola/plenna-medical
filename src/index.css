@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 .main-container {
   max-width: 100%;
@@ -16,7 +17,12 @@ body {
   padding: 15px;
   width: 100%;
   margin: auto;
-  max-width: 350px;
+  max-width: 280px;
+}
+.patients-container {
+  margin: 15px 0px;
+  width: 100%;
+  overflow: hidden;
 }
 
 code {
@@ -24,7 +30,6 @@ code {
     monospace;
 }
 header > div {
-  padding: 0 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,6 +57,23 @@ nav a {
   width: 50px;
   margin: 15px 0px;
 }
+
+.banner {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #712045;
+  margin: auto;
+}
+.home-title {
+  font-size: 60px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  font-family: "Barlow Semi Condensed";
+  text-align: center;
+}
 h1 {
   font-family: "Barlow Semi Condensed";
   font-weight: 800;
@@ -60,6 +82,10 @@ h1 {
 .title {
   font-family: "Work Sans", sans-serif;
   text-align: left;
+}
+.subtitle {
+  font-family: "Barlow Semi Condensed";
+  font-size: 12px;
 }
 
 .iconApp {
@@ -113,15 +139,13 @@ footer {
 }
 .text-area {
   display: block;
-  width: 100%;
+  width: 90%;
   padding: 15px;
   margin: 15px 0px;
   color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  overflow: auto;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .error-message {
@@ -141,4 +165,57 @@ footer {
   text-decoration: none;
   outline: none;
   text-decoration: none;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 5px;
+  margin: auto;
+  width: 100%;
+  max-width: 500px;
+}
+.card-body {
+  flex: 1 1 auto;
+  padding: 10px;
+}
+.list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-radius: 5px;
+}
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px;
+  color: #212529;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  list-style: none;
+}
+.separator {
+  position: relative;
+  display: block;
+  padding: 10px;
+  color: #212529;
+  text-decoration: none;
+  background-color: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+.list-group-item:hover {
+  position: relative;
+  display: block;
+  padding: 10px;
+  color: #355070;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  list-style: none;
+  font-weight: 600;
 }

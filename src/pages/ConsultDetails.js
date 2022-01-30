@@ -13,28 +13,47 @@ const ConsultDetails = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Historial medico</h1>
-      <h3>Fecha</h3>
-      <p>{singleConsult.updatedAt.slice(0, 10)}</p>
+    <div className="patients-container">
+      <div className="card">
+        <div className="card-body">
+          <h1>Historial medico</h1>
+          <div>
+            <div className="separator">
+              <p className="title">Fecha</p>
+              <p>{singleConsult.updatedAt}</p>
+            </div>
 
-      <h3>Padecimiento</h3>
-      <p>{singleConsult.condition}</p>
+            <div className="separator">
+              <p className="title">Padecimiento</p>
+              <p>{singleConsult.condition}</p>
+            </div>
 
-      <h3>Exploración física</h3>
-      <p>{singleConsult.examination}</p>
+            <div className="separator">
+              <p className="title">Exploración física</p>
+              <p>{singleConsult.examination}</p>
+            </div>
 
-      <h3>Diagnóstico</h3>
-      <p>{singleConsult.diagnostic}</p>
+            <div className="separator">
+              <p className="title">Diagnóstico</p>
+              <p>{singleConsult.diagnostic}</p>
+            </div>
 
-      <h3>Receta</h3>
-      <p>{singleConsult.prescription}</p>
+            <div className="separator">
+              <p className="title">Receta</p>
+              <p>{singleConsult.prescription}</p>
+            </div>
 
-      <h3>Tratamiento</h3>
-      <p>{singleConsult.treatment}</p>
-
-      <h3>Notas</h3>
-      <p>{singleConsult.notes}</p>
+            <div className="separator">
+              <p className="title">Tratamiento</p>
+              <p>{singleConsult.treatment}</p>
+            </div>
+            <div className="separator">
+              <p className="title">Notas</p>
+              <p>{singleConsult.notes}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
