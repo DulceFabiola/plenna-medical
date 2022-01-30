@@ -5,7 +5,6 @@ import PatientContext from "../../context/Patient/PatientContext";
 const PatientDetails = () => {
   const patientCtx = useContext(PatientContext);
   const { getPatient, singlePatient } = patientCtx;
-
   const params = useParams();
   const id = params.id;
 
@@ -22,8 +21,21 @@ const PatientDetails = () => {
       <p>Edad: {singlePatient.age}</p>
       <p>Peso: {singlePatient.weight}</p>
       <p>Estatura: {singlePatient.height}</p>
-      <p>Alergias: {singlePatient.allergies}</p>
-      <p>Consultas previas: {singlePatient.myconsults}</p>
+      <p>
+        Alergias:
+        {singlePatient.allergies ? singlePatient.allergies : " No reportadas"}
+      </p>
+      <p>
+        Historial medico:
+        {singlePatient.myconsults &&
+          singlePatient.myconsults.map((item, index) => {
+            return (
+              <Link key={index} to={`/consultDetails/${item}`}>
+                <li>{item}</li>
+              </Link>
+            );
+          })}
+      </p>
       <Link to={`/consult/${singlePatient._id}`}>
         <button type="button" className="btn">
           Iniciar nueva consulta

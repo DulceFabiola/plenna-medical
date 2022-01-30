@@ -13,37 +13,48 @@ import PatientDetails from "./components/Patients/PatientDetails";
 import Patient from "./pages/OurPatients";
 import PatientProvider from "./context/Patient/PatientProvider";
 import Consults from "./pages/Consults";
+import ConsultProvider from "./context/Consult/ConsultProvider";
+import ConsultDetails from "./pages/ConsultDetails";
 const Router = () => {
   return (
     <>
-      <PatientProvider>
-        <UserProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="*" element={<PageNotFound />} />
-                {/* Rutas de Usuario*/}
-                <Route path="login" element={<Auth component={Login} />} />
-                <Route path="signup" element={<Auth component={Register} />} />
-                <Route
-                  path="profile"
-                  element={<Private component={Profile} />}
-                />
-                {/* Rutas de paciente */}
-                <Route
-                  path="patients"
-                  element={<Private component={Patient} />}
-                />
-                <Route path="patients/:id" element={<PatientDetails />} />
+      <ConsultProvider>
+        <PatientProvider>
+          <UserProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Home />} />
+                  <Route path="*" element={<PageNotFound />} />
+                  {/* Rutas de Usuario*/}
+                  <Route path="login" element={<Auth component={Login} />} />
+                  <Route
+                    path="signup"
+                    element={<Auth component={Register} />}
+                  />
+                  <Route
+                    path="profile"
+                    element={<Private component={Profile} />}
+                  />
+                  {/* Rutas de paciente */}
+                  <Route
+                    path="patients"
+                    element={<Private component={Patient} />}
+                  />
+                  <Route path="patients/:id" element={<PatientDetails />} />
 
-                {/* Rutas de consulta */}
-                <Route path="consult/:id" element={<Consults />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </UserProvider>
-      </PatientProvider>
+                  {/* Rutas de consulta */}
+                  <Route path="consult/:id" element={<Consults />} />
+                  <Route
+                    path="consultDetails/:id"
+                    element={<ConsultDetails />}
+                  />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </UserProvider>
+        </PatientProvider>
+      </ConsultProvider>
     </>
   );
 };
