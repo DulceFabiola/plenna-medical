@@ -86,16 +86,6 @@ const UserProvider = (props) => {
     await axiosClient.put(`users/editprofile/${idUser}`, form);
   };
 
-  //AGREGAR CONSULTA
-  const addConsult = async (consultId) => {
-    try {
-      await axiosClient.post(`users/registerconsult/${consultId}`);
-      await verifyingToken();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <UserContext.Provider
       value={{
@@ -107,7 +97,6 @@ const UserProvider = (props) => {
         verifyingToken,
         logoutUser,
         updateProfile,
-        addConsult,
       }}
     >
       {props.children}

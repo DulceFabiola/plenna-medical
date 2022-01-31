@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ConsultContext from "../context/Consult/ConsultContext";
+import Checkout from "../components/Checkout";
 const Consults = () => {
   const consultCtx = useContext(ConsultContext);
 
@@ -31,7 +32,7 @@ const Consults = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     createConsult(newConsult);
-    navigate("/checkout");
+    navigate(`/patients/${id}`);
   };
 
   return (
@@ -51,6 +52,7 @@ const Consults = () => {
               onChange={(event) => {
                 handleChange(event);
               }}
+              required
             />
 
             <label className="title">Exploración física</label>
@@ -60,6 +62,7 @@ const Consults = () => {
               onChange={(event) => {
                 handleChange(event);
               }}
+              required
             />
 
             <label className="title">Diagnóstico</label>
@@ -69,6 +72,7 @@ const Consults = () => {
               onChange={(event) => {
                 handleChange(event);
               }}
+              required
             />
 
             <label className="title">Receta</label>
@@ -78,6 +82,7 @@ const Consults = () => {
               onChange={(event) => {
                 handleChange(event);
               }}
+              required
             />
 
             <label className="title">Tratamiento</label>
@@ -87,6 +92,7 @@ const Consults = () => {
               onChange={(event) => {
                 handleChange(event);
               }}
+              required
             />
 
             <label className="title">Notas</label>
@@ -96,11 +102,14 @@ const Consults = () => {
               onChange={(event) => {
                 handleChange(event);
               }}
+              required
             />
-
-            <button type="submit" className="btn">
-              Siguiente
-            </button>
+            <Checkout />
+            <div className="div-right">
+              <button type="submit" className="btn">
+                Finalizar consulta
+              </button>
+            </div>
           </form>
         </div>
       </div>

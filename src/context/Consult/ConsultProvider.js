@@ -41,7 +41,7 @@ const ConsultProvider = (props) => {
       payload: selectedConsult,
     });
   };
-  //CRAR CONSULTA
+  //CREAR CONSULTA
   const createConsult = async (form) => {
     await axiosClient.post("consults/create", form);
     console.log(form);

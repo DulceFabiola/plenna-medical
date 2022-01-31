@@ -27,8 +27,7 @@ const Login = () => {
   };
   return (
     <div className=" container">
-      <div className="">
-        <img className="icon" src="./../../assets/mujer.png" alt="Plenna" />
+      <div>
         <h1>Iniciar sesión</h1>
         <form
           onSubmit={(e) => {

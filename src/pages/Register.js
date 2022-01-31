@@ -27,7 +27,6 @@ const Register = () => {
   return (
     <div className="main-container">
       <div className="container">
-        <img className="icon" src="./../../assets/mujer.png" alt="Plenna" />
         <h1>Registra una cuenta</h1>
         <form
           onSubmit={(event) => {

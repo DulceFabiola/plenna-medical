@@ -4,14 +4,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  max-width: 100%;
 }
 .main-container {
-  max-width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .container {
   padding: 15px;
@@ -34,10 +32,11 @@ header > div {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid lightgray;
+  background-color: #eae5e6;
 }
 
 nav {
-  width: 600px;
+  width: 500px;
 }
 
 nav ul {
@@ -46,16 +45,33 @@ nav ul {
   justify-content: space-between;
   align-items: center;
 }
+nav li :hover {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #39817c;
+  font-family: "Barlow Semi Condensed";
+  font-size: 18px;
+}
 
 nav a {
+  font-family: "Barlow Semi Condensed";
+  font-size: 18px;
   text-decoration: none;
   color: black;
 }
-.icon {
-  height: auto;
-  max-width: 100%;
-  width: 50px;
-  margin: 15px 0px;
+
+.card-article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 5px;
+  margin: 15px auto;
+  width: 100%;
+  max-width: 500px;
 }
 
 .banner {
@@ -63,6 +79,10 @@ nav a {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background-image: url("https://webloom.health/wp-content/uploads/2020/11/exeltis-ruleta-regla-embarazo-fb.jpg");
+  background-position: 00;
+  background-repeat: no-repeat;
+  background-size: cover; */
   background-color: #712045;
   margin: auto;
 }
@@ -73,6 +93,16 @@ nav a {
   text-decoration: none;
   font-family: "Barlow Semi Condensed";
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bg-container {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #712045;
 }
 h1 {
   font-family: "Barlow Semi Condensed";
@@ -89,7 +119,7 @@ h1 {
 }
 
 .iconApp {
-  width: 20px;
+  width: 50px;
   margin-right: 1rem;
 }
 input {
@@ -105,7 +135,6 @@ input {
 }
 footer {
   position: fixed;
-  left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
@@ -136,6 +165,11 @@ footer {
   font-weight: 400;
   border-radius: 5px;
   width: 100%;
+}
+.div-right {
+  float: right;
+  margin-right: 10px;
+  min-width: 150px;
 }
 .text-area {
   display: block;
@@ -176,11 +210,22 @@ footer {
   border-radius: 5px;
   margin: auto;
   width: 100%;
-  max-width: 500px;
+  max-width: 1000px;
 }
 .card-body {
   flex: 1 1 auto;
   padding: 10px;
+}
+.card-checkout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 5px;
+  margin: auto;
+  width: 100%;
+  max-width: 1030px;
 }
 .list-group {
   display: flex;
@@ -218,4 +263,75 @@ footer {
   border: 1px solid rgba(0, 0, 0, 0.125);
   list-style: none;
   font-weight: 600;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.services {
+  font-family: "Work Sans", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.services td,
+.services th {
+  border: 1px solid #e9ecef;
+  padding: 8px;
+  text-align: center;
+}
+
+.services tr:nth-child(even) {
+  text-align: center;
+  background-color: #e9ecef;
+}
+
+.services tr:hover {
+  text-align: center;
+  background-color: #ddd;
+}
+
+.services th {
+  padding: 12px 0px;
+  text-align: center;
+  background-color: #ffa781;
+}
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  margin: auto;
+  width: 100%;
+  max-width: 1440px;
+}
+@media (max-width: 700px) {
+  header > div {
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    background-color: #eae5e6;
+  }
+
+  nav li :hover {
+    list-style: none;
+    color: #39817c;
+    font-family: "Barlow Semi Condensed";
+    font-size: 18px;
+  }
+
+  nav a {
+    font-family: "Barlow Semi Condensed";
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    text-align: left !important;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
 }

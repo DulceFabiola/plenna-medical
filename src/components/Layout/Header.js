@@ -23,8 +23,12 @@ const Header = () => {
                       src="./../../../assets/mujer.png"
                       alt="plenna-icon"
                     />
-                    <span>Plenna</span>
                   </div>
+                </Link>
+              </li>
+              <li>
+                <Link to="/">
+                  <p>Plenna</p>
                 </Link>
               </li>
               {currentUser.name ? (
@@ -40,7 +44,7 @@ const Header = () => {
                 </>
               ) : (
                 <li>
-                  <Link to="/login">Login</Link>
+                  <Link to="/login">Iniciar sesión</Link>
                 </li>
               )}
             </ul>
@@ -48,7 +52,7 @@ const Header = () => {
         </div>
       </header>
       <div className="banner">
-        <span className="home-title">PLENNA MEDICAL</span>
+        <span className="home-title">PLENNA PORTAL MÉDICO</span>
       </div>
     </div>
   );
