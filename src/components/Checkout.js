@@ -1,16 +1,39 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ServicesContext from "../context/Services/ServicesContext";
-
+import { useParams, useNavigate } from "react-router-dom";
+import ConsultDetails from "../pages/ConsultDetails";
+import ConsultContext from "../context/Consult/ConsultContext";
 const Checkout = () => {
+  const params = useParams();
+  const id = params.id;
+  const navigate = useNavigate();
+
+  const consultCtx = useContext(ConsultContext);
+
+  const { getConsult, singleConsult, updateConsult } = consultCtx;
   const servicesCtx = useContext(ServicesContext);
   const { services, getServices } = servicesCtx;
 
+  const [checkedItems, setCheckedItems] = useState({});
+
+  const handleChange = (event) => {
+    setCheckedItems({
+      ...checkedItems,
+      [event.target.name]: event.target.checked,
+    });
+  };
+
   useEffect(() => {
     getServices();
+    getConsult(id);
   }, []);
 
+  useEffect(() => {
+    console.log("checkedItems: ", checkedItems);
+  }, [checkedItems]);
   return (
     <div className="card-body">
+      <ConsultDetails />
       <h1>Agregar servicios extras a la consulta</h1>
       <div>
         <div className="separator">
@@ -29,7 +52,13 @@ const Checkout = () => {
                       <td>{item.description}</td>
                       <td>{item.price}</td>
                       <td>
-                        <input type={"checkbox"} />
+                        <input
+                          type={"checkbox"}
+                          checked={checkedItems[item.description]}
+                          onChange={handleChange}
+                          name={item._id}
+                          value={item._id}
+                        />
                       </td>
                     </tr>
                   )}
@@ -54,7 +83,13 @@ const Checkout = () => {
                       <td>{item.description}</td>
                       <td>{item.price}</td>
                       <td>
-                        <input type={"checkbox"} />
+                        <input
+                          type={"checkbox"}
+                          checked={checkedItems[item.description]}
+                          onChange={handleChange}
+                          name={item._id}
+                          value={item._id}
+                        />
                       </td>
                     </tr>
                   )}
@@ -79,7 +114,13 @@ const Checkout = () => {
                       <td>{item.description}</td>
                       <td>{item.price}</td>
                       <td>
-                        <input type={"checkbox"} />
+                        <input
+                          type={"checkbox"}
+                          checked={checkedItems[item.description]}
+                          onChange={handleChange}
+                          name={item._id}
+                          value={item._id}
+                        />
                       </td>
                     </tr>
                   )}
@@ -87,6 +128,12 @@ const Checkout = () => {
               );
             })}
           </table>
+          <div className="div-right">
+            <h3>Total:</h3>
+            <button type="submit" className="btn">
+              Finalizar consulta
+            </button>
+          </div>
         </div>
       </div>
     </div>

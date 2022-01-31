@@ -16,6 +16,7 @@ import Consults from "./pages/Consults";
 import ConsultProvider from "./context/Consult/ConsultProvider";
 import ConsultDetails from "./pages/ConsultDetails";
 import ServicesProvider from "./context/Services/ServicesProvider";
+import Checkout from "./components/Checkout";
 const Router = () => {
   return (
     <>
@@ -51,6 +52,7 @@ const Router = () => {
                       path="consultDetails/:id"
                       element={<ConsultDetails />}
                     />
+                    <Route path="checkout/:id" element={<Checkout />} />
                   </Route>
                 </Routes>
               </BrowserRouter>

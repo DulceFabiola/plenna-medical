@@ -1,11 +1,10 @@
 import React, { useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ConsultContext from "../context/Consult/ConsultContext";
-import Checkout from "../components/Checkout";
 const Consults = () => {
   const consultCtx = useContext(ConsultContext);
 
-  const { createConsult } = consultCtx;
+  const { createConsult, singleConsult } = consultCtx;
   const params = useParams();
   const id = params.id;
   const navigate = useNavigate();
@@ -32,7 +31,7 @@ const Consults = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     createConsult(newConsult);
-    navigate(`/patients/${id}`);
+    navigate(`/checkout/${singleConsult._id}`);
   };
 
   return (
@@ -104,10 +103,9 @@ const Consults = () => {
               }}
               required
             />
-            <Checkout />
             <div className="div-right">
               <button type="submit" className="btn">
-                Finalizar consulta
+                Siguiente
               </button>
             </div>
           </form>
