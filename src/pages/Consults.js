@@ -28,10 +28,11 @@ const Consults = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    createConsult(newConsult);
-    navigate(`/checkout/${singleConsult._id}`);
+    const res = await createConsult(newConsult);
+    console.log(res.data._id);
+    navigate(`/checkout/${res.data._id}`);
   };
 
   return (

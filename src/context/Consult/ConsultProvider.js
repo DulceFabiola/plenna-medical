@@ -43,8 +43,8 @@ const ConsultProvider = (props) => {
   };
   //CREAR CONSULTA
   const createConsult = async (form) => {
-    await axiosClient.post("consults/create", form);
-    console.log(form);
+    const res = await axiosClient.post("consults/create", form);
+    return res.data;
   };
 
   //EDITAR CONSULTA

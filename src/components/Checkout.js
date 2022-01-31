@@ -14,13 +14,11 @@ const Checkout = () => {
   const servicesCtx = useContext(ServicesContext);
   const { services, getServices } = servicesCtx;
 
-  const [checkedItems, setCheckedItems] = useState({});
+  const [checkedItems, setCheckedItems] = useState([]);
+  const [total, setTotal] = useState(0);
 
-  const handleChange = (event) => {
-    setCheckedItems({
-      ...checkedItems,
-      [event.target.name]: event.target.checked,
-    });
+  const handleChange = (item) => {
+    setCheckedItems([...checkedItems, item]);
   };
 
   useEffect(() => {
@@ -29,8 +27,17 @@ const Checkout = () => {
   }, []);
 
   useEffect(() => {
-    console.log("checkedItems: ", checkedItems);
+    if (checkedItems.length) {
+      let price = [...checkedItems].reduce((a, b) => a.price + b.price);
+      setTotal(price);
+    }
+    console.log(checkedItems);
   }, [checkedItems]);
+
+  const addServices = () => {
+    updateConsult(checkedItems);
+    navigate(`/consultDetails/${singleConsult._id}`);
+  };
   return (
     <div className="card-body">
       <ConsultDetails />
@@ -58,7 +65,9 @@ const Checkout = () => {
                               <input
                                 type={"checkbox"}
                                 checked={checkedItems[item.description]}
-                                onChange={handleChange}
+                                onChange={() => {
+                                  handleChange(item);
+                                }}
                                 name={item._id}
                                 value={item._id}
                               />
@@ -89,7 +98,9 @@ const Checkout = () => {
                               <input
                                 type={"checkbox"}
                                 checked={checkedItems[item.description]}
-                                onChange={handleChange}
+                                onChange={() => {
+                                  handleChange(item);
+                                }}
                                 name={item._id}
                                 value={item._id}
                               />
@@ -120,7 +131,9 @@ const Checkout = () => {
                               <input
                                 type={"checkbox"}
                                 checked={checkedItems[item.description]}
-                                onChange={handleChange}
+                                onChange={() => {
+                                  handleChange(item);
+                                }}
                                 name={item._id}
                                 value={item._id}
                               />
@@ -132,8 +145,12 @@ const Checkout = () => {
                   })}
                 </table>
                 <div className="div-right">
-                  <h3>Total:</h3>
-                  <button type="submit" className="btn">
+                  <h3> {`Total:$ ${total}`}</h3>
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={() => addServices()}
+                  >
                     Finalizar consulta
                   </button>
                 </div>
