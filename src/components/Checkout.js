@@ -15,11 +15,12 @@ const Checkout = () => {
   const { services, getServices } = servicesCtx;
 
   const [checkedItems, setCheckedItems] = useState({});
+  const [price, setPrice] = useState(0);
 
   const handleChange = (event) => {
     setCheckedItems({
       ...checkedItems,
-      [event.target.name]: event.target.checked,
+      [event.target.checked]: event.target.name,
     });
   };
 
@@ -31,6 +32,11 @@ const Checkout = () => {
   useEffect(() => {
     console.log("checkedItems: ", checkedItems);
   }, [checkedItems]);
+
+  const total = () => {
+    console.log(checkedItems);
+  };
+
   return (
     <div className="card-body">
       <ConsultDetails />
@@ -56,7 +62,7 @@ const Checkout = () => {
                           type={"checkbox"}
                           checked={checkedItems[item.description]}
                           onChange={handleChange}
-                          name={item._id}
+                          name={item.price}
                           value={item._id}
                         />
                       </td>
@@ -87,7 +93,7 @@ const Checkout = () => {
                           type={"checkbox"}
                           checked={checkedItems[item.description]}
                           onChange={handleChange}
-                          name={item._id}
+                          name={item.price}
                           value={item._id}
                         />
                       </td>
@@ -118,7 +124,7 @@ const Checkout = () => {
                           type={"checkbox"}
                           checked={checkedItems[item.description]}
                           onChange={handleChange}
-                          name={item._id}
+                          name={item.price}
                           value={item._id}
                         />
                       </td>
